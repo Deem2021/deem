@@ -16,6 +16,7 @@ func showErrorAlert(_ controller: UIViewController, message: String?) {
         print("showErrorAlert(): No message to display.")
         return
     }
+    
     DispatchQueue.main.async {
         let appearance = SCLAlertView.SCLAppearance(
             kTitleFont: UIFont.textStyle18,
@@ -30,7 +31,7 @@ func showErrorAlert(_ controller: UIViewController, message: String?) {
 }
     func showSuccessAlert(_ controller: UIViewController, message: String?) {
         guard message != nil else {
-            print("showErrorAlert(): No message to display.")
+            print("showErrorAlert():   No message to display.")
             return
         }
         DispatchQueue.main.async {
