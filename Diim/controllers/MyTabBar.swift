@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Diim
 //
-//  Created by Fatima Aljaber on 18/02/2021.
+//  Created by Diim on 18/02/2021.
 //
 
 
@@ -14,9 +14,9 @@ class MyTabBar: UITabBar {
   private func addShape() {
     let shapeLayer = CAShapeLayer()
     shapeLayer.path = createPath()
-    shapeLayer.strokeColor = UIColor.lightGray.cgColor
+    shapeLayer.strokeColor = UIColor.white.cgColor
     shapeLayer.fillColor = UIColor.white.cgColor
-    shapeLayer.lineWidth = 1.0
+    shapeLayer.lineWidth = 5
     
     //The below 4 lines are for shadow above the bar. you can skip them if you do not want a shadow
     shapeLayer.shadowOffset = CGSize(width:0, height:0)
@@ -35,7 +35,7 @@ class MyTabBar: UITabBar {
     self.addShape()
   }
   func createPath() -> CGPath {
-    let height: CGFloat = 30
+    let height: CGFloat = 35
     let path = UIBezierPath()
     let centerWidth = self.frame.width / 2
     path.move(to: CGPoint(x: 0, y: 0)) // start top left

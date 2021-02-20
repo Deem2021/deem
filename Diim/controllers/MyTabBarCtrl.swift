@@ -2,11 +2,10 @@
 //  ViewController.swift
 //  Diim
 //
-//  Created by Fatima Aljaber on 18/02/2021.
+//  Created by Diim on 18/02/2021.
 //
 
 import UIKit
-import SwiftIcons
 class MyTabBarCtrl: UITabBarController, UITabBarControllerDelegate {
    
     override func viewDidLoad() {
@@ -17,11 +16,18 @@ class MyTabBarCtrl: UITabBarController, UITabBarControllerDelegate {
     
     // TabBarButton – Setup Middle Button
     func setupMiddleButton() {
-        let middleBtn = UIButton(frame: CGRect(x: (self.view.bounds.width / 2)-29, y: -35, width: 60, height: 60))
-        middleBtn.layer.cornerRadius = 30
-            middleBtn.setImage(UIImage(named: "plus"), for: .normal)
+        let middleBtn = UIButton(frame: CGRect(x: (self.view.bounds.width / 2)-35, y: -45, width: 70, height: 70))
+        let attributedStringButton = NSMutableAttributedString(string: "أضف إنجازك", attributes: [
+            .font: UIFont.textStyle10,
+            .foregroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        ])
+        middleBtn.layer.cornerRadius = middleBtn.frame.size.height/2
+        middleBtn.setImage(UIImage(named: "plus")?.withTintColor(UIColor.white), for: .normal)
+        middleBtn.setAttributedTitle(attributedStringButton, for: .normal)
         middleBtn.backgroundColor = UIColor.melon
-        
+        middleBtn.tintColor = UIColor.clear
+        middleBtn.isHighlighted = false
+        middleBtn.alignTextBelow()
         //STYLE THE BUTTON YOUR OWN WAY
         //   let gradientLayer = CAGradientLayer()
         //    middleBtn.layer.masksToBounds = true
@@ -40,6 +46,7 @@ class MyTabBarCtrl: UITabBarController, UITabBarControllerDelegate {
         self.view.layoutIfNeeded()
     }
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        
             if tabBarController.selectedIndex == 2{
                
                 

@@ -2,12 +2,14 @@
 //  ViewController.swift
 //  Diim
 //
-//  Created by Fatima Aljaber on 18/02/2021.
+//  Created by Diim on 18/02/2021.
 //
 
 import UIKit
+import Foundation
 class Design{
     
+
     static func buttonShadowAndBorder(button: UIButton,border: Bool,shadow: Bool){
         if shadow{
             button.layer.masksToBounds = false
@@ -18,7 +20,7 @@ class Design{
         }
         if border{
             button.layer.borderWidth = 1
-            button.layer.borderColor = UIColor.melon
+            button.layer.borderColor = UIColor.melon.cgColor
         }
     }
     

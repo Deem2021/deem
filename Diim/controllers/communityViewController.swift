@@ -2,28 +2,23 @@
 //  communityViewController.swift
 //  Diim
 //
-//  Created by Fatima Aljaber on 18/02/2021.
+//  Created by Diim on 18/02/2021.
 //
 
 import UIKit
+import SideMenu
 
-class communityViewController: UIViewController {
-
+class communityViewController: UIViewController ,NavigationWithImage, CustomNavigationAppearance,CustomMenuButtonItem {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupMainNavigationAppearance()
+        setupNavigationImageView()
+        setupCustomMenuButton()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func didPressMenuBtn() {
+        let menu = storyboard!.instantiateViewController(withIdentifier: "SideMenuNavigationController") as! SideMenuNavigationController
+        present(menu, animated: true, completion: nil)
     }
-    */
-
 }

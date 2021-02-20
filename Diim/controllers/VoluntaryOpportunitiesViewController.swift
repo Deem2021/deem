@@ -2,28 +2,40 @@
 //  VoluntaryOpportunitiesViewController.swift
 //  Diim
 //
-//  Created by Fatima Aljaber on 18/02/2021.
+//  Created by Diim on 18/02/2021.
 //
 
 import UIKit
+import youtube_ios_player_helper
+import SideMenu
 
-class VoluntaryOpportunitiesViewController: UIViewController {
-
+class VoluntaryOpportunitiesViewController: UIViewController,NavigationWithImage, CustomNavigationAppearance,CustomMenuButtonItem {
+    @IBOutlet weak var playerVedio: YTPlayerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupMainNavigationAppearance()
+        setupNavigationImageView()
+        setupCustomMenuButton()
+        playerVedio.load(withVideoId: "6jKyifBjzKg", playerVars: ["playsinline": "1"])
+        playerVedio.delegate = self
+    }
+    
+    @IBAction func didPressGoToWeb(_ sender: Any) {
+        let urll =  NSURL(string:"https://nvg.gov.sa")!
+        UIApplication.shared.openURL(urll as URL)
+    }
+    func didPressMenuBtn() {
+        let menu = storyboard!.instantiateViewController(withIdentifier: "SideMenuNavigationController") as! SideMenuNavigationController
+        present(menu, animated: true, completion: nil)
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+extension VoluntaryOpportunitiesViewController: YTPlayerViewDelegate {
+    func playerViewPreferredWebViewBackgroundColor(_ playerView: YTPlayerView) -> UIColor {
+        return UIColor.black
     }
-    */
-
+    
+   
 }

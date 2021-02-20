@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Diim
 //
-//  Created by Fatima Aljaber on 18/02/2021.
+//  Created by Diim on 18/02/2021.
 //
 
 import UIKit
@@ -25,7 +25,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBAction func NextPage(_ sender: Any) {
         if pageNumber == 1{
-            //self.appDelegate?.menu()
+            print("main")
+            self.appDelegate?.Main()
         }
         else{
             self.pageNumber = self.pageNumber + 1
